@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教會人格圖鑑 - 互動式MBTI數據儀表板</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #fef3c7, #fed7aa, #dcfce7);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #eab308, #f97316, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 2rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-yellow-50 via-orange-50 to-green-50">
+    <!-- Header -->
+    <header class="bg-white border-b-2 border-yellow-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between flex-col md:flex-row">
+                <div class="mb-4 md:mb-0">
+                    <h1 class="text-4xl font-bold gradient-text">教會人格圖鑑</h1>
+                    <p class="text-gray-600 mt-1">30,445位基督徒的MBTI數據探索</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <div class="text-3xl font-bold text-yellow-600">28,796</div>
+                    <p class="text-sm text-gray-600">平信徒</p>
+                    <div class="text-2xl font-bold text-orange-600 mt-2">1,649</div>
+                    <p class="text-sm text-gray-600">牧者</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-yellow-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 flex gap-2 overflow-x-auto">
+            <button onclick="switchTab('overview')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition active" data-tab="overview">📊 概覽</button>
+            <button onclick="switchTab('ranking')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition" data-tab="ranking">🏆 排行榜</button>
+            <button onclick="switchTab('comparison')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition" data-tab="comparison">⚖️ 牧者vs信徒</button>
+            <button onclick="switchTab('temperament')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition" data-tab="temperament">🎨 四大氣質</button>
+            <button onclick="switchTab('dimension')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition" data-tab="dimension">📐 四大向度</button>
+            <button onclick="switchTab('insights')" class="tab-btn px-4 py-3 font-medium whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:text-orange-500 transition" data-tab="insights">💡 驚奇發現</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-6 rounded-xl border-l-4 border-yellow-500 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">📌</div>
+                        <div>
+                            <h3 class="font-bold text-lg">7成人是F型</h3>
+                            <p class="text-gray-600 text-sm mt-1">平信徒73.1%、牧者70.5%都是情感型，這比E/I差異大得多</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-l-4 border-orange-500 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🔄</div>
+                        <div>
+                            <h3 class="font-bold text-lg">J/P大翻轉</h3>
+                            <p class="text-gray-600 text-sm mt-1">平信徒偏J(58.3%)，牧者偏P(59.1%)，差異最大17個百分點</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-l-4 border-green-500 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🚀</div>
+                        <div>
+                            <h3 class="font-bold text-lg">ESFP牧者狂飆</h3>
+                            <p class="text-gray-600 text-sm mt-1">牧者20.4% vs 平信徒9.1%，比例是2.24倍！每5位牧者有1位</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-l-4 border-red-500 shadow-md hover:shadow-lg transition">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">❓</div>
+                        <div>
+                            <h3 class="font-bold text-lg">ENFJ消失謎團</h3>
+                            <p class="text-gray-600 text-sm mt-1">平信徒9.0% vs 牧者只有0.91%，為什麼？</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ranking Tab -->
+        <div id="ranking" class="tab-content space-y-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">16型排行榜</h2>
+                <div class="chart-container">
+                    <canvas id="rankingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-2 border-yellow-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-yellow-900 mb-3">✨ 平信徒排行榜的驚奇發現</h3>
+                <div class="space-y-3">
+                    <p class="text-gray-700"><strong>前8名全都是F型！</strong></p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+                        <div class="bg-white p-2 rounded">🥇 ESFJ 12.1%</div>
+                        <div class="bg-white p-2 rounded">🥈 ISFJ 11.8%</div>
+                        <div class="bg-white p-2 rounded">🥉 ESFP 9.1%</div>
+                        <div class="bg-white p-2 rounded">4️⃣ ENFJ 9.0%</div>
+                        <div class="bg-white p-2 rounded">5️⃣ INFJ 8.6%</div>
+                        <div class="bg-white p-2 rounded">6️⃣ ENFP 8.1%</div>
+                        <div class="bg-white p-2 rounded">7️⃣ ISFP 7.6%</div>
+                        <div class="bg-white p-2 rounded">8️⃣ INFP 6.8%</div>
+                    </div>
+                    <p class="text-sm text-gray-700">↓ 直到第9名ISTJ (6.0%)，才第一次出現T型！</p>
+                    <p class="text-sm text-gray-700 font-semibold">💡 這比單純說「73% F」更有視覺衝擊力！</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Tab -->
+        <div id="comparison" class="tab-content space-y-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">牧者 vs 平信徒</h2>
+                <div class="chart-container">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-orange-50 border-2 border-orange-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-orange-900 mb-3">🚀 ESFP牧者爆炸！</h3>
+                <div class="space-y-3">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-yellow-400">
+                            <p class="text-sm text-gray-600">平信徒 ESFP</p>
+                            <p class="text-2xl font-bold text-yellow-600">9.1%</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border-l-4 border-orange-500">
+                            <p class="text-sm text-gray-600">牧者 ESFP</p>
+                            <p class="text-2xl font-bold text-orange-600">20.4%</p>
+                        </div>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-700">比例是 2.24 倍！每5位牧者就有1位是ESFP！</p>
+                    <p class="text-sm text-gray-700">ESFP的典型特質：</p>
+                    <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+                        <li>對人的狀態敏銳 👁️</li>
+                        <li>現場感強，靈敏度高 ⚡</li>
+                        <li>喜歡直接互動，即時回應 💬</li>
+                        <li>彈性高，根據現況調整 🔄</li>
+                    </ul>
+                    <p class="text-sm text-gray-700 mt-2">💭 <strong>思考：</strong>是ESFP適合牧職，還是牧職的不可預測性吸引了他們？</p>
+                </div>
+            </div>
+
+            <div class="bg-purple-50 border-2 border-purple-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-purple-900 mb-3">🎯 INFP也很突出</h3>
+                <div class="space-y-3">
+                    <p class="text-sm text-gray-700">平信徒 INFP 6.8% → 牧者 INFP 11.3% (1.67倍)</p>
+                    <p class="text-sm font-semibold text-gray-700">ESFP + INFP = 31.7% 的牧者！</p>
+                    <p class="text-sm text-gray-700">也就是說：<strong>大約每三位牧者，就有一位是ESFP或INFP</strong></p>
+                    <p class="text-sm text-gray-700">兩者共同字母：<strong>F + P</strong></p>
+                    <p class="text-sm text-gray-700 text-purple-700">→ 牧者樣本重視「價值/人」+「彈性開放」</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-2 border-blue-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-blue-900 mb-3">🧠 NT型牧者比你想的多</h3>
+                <div class="space-y-3">
+                    <p class="text-sm text-gray-700"><strong>INTP：</strong>平信徒3.35% → 牧者6.06% (1.81倍)</p>
+                    <p class="text-sm text-gray-700"><strong>INTJ：</strong>平信徒4.56% → 牧者6.73% (1.48倍)</p>
+                    <p class="text-sm text-gray-700">🔬 牧者不只有「很會關懷人的F型」</p>
+                    <p class="text-sm text-gray-700">也有一群很明顯的：理論思考、系統整理、深度分析、概念導向的人</p>
+                    <div class="mt-3 p-3 bg-white rounded text-sm text-gray-700">
+                        <strong>兩種牧者的對話：</strong><br>
+                        ESFP: 「我們先去現場看看大家需要什麼！」<br>
+                        INTP: 「等一下，我想先重新整理一下這段經文的神學架構。」😂
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-red-50 border-2 border-red-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-red-900 mb-3">❓ 最異常的發現：ENFJ和INFJ的大幅落差</h3>
+                <div class="space-y-3">
+                    <div class="grid grid-cols-2 gap-4 mb-3">
+                        <div>
+                            <p class="text-xs text-gray-600">平信徒 ENFJ</p>
+                            <p class="text-xl font-bold text-orange-600">9.0%</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600">牧者 ENFJ</p>
+                            <p class="text-xl font-bold text-red-600">0.91%</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">只有平信徒的1/10！</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-3">
+                        <div>
+                            <p class="text-xs text-gray-600">平信徒 INFJ</p>
+                            <p class="text-xl font-bold text-orange-600">8.63%</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600">牧者 INFJ</p>
+                            <p class="text-xl font-bold text-red-600">2.79%</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700">只有1/3！</p>
+                    
+                    <p class="text-sm font-semibold text-gray-700">NFJ合計：平信徒17.6% → 牧者只有3.7%</p>
+                    
+                    <p class="text-sm text-gray-700 mt-3">📌 <strong>為什麼？</strong></p>
+                    <ul class="text-xs text-gray-700 list-disc list-inside space-y-1">
+                        <li>測驗題目對牧者有不同判別效果？</li>
+                        <li>牧者在「工作角色」答題 vs 平信徒在「生活」答題？</li>
+                        <li>年齡或教派結構不同？</li>
+                        <li>NFJ人數少，進入牧職機率低？</li>
+                    </ul>
+                    <p class="text-xs text-gray-700 mt-2 font-semibold">🔬 這需要進一步調查，而不是直接說「ENFJ不適合當牧師」</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Temperament Tab -->
+        <div id="temperament" class="tab-content">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800">四大氣質分布</h2>
+                <div style="height: 300px; display: flex; justify-content: center;">
+                    <canvas id="temperamentChart" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                    <h3 class="font-bold text-lg text-blue-600">🔵 SJ (守護者)</h3>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">9,449人</p>
+                    <p class="text-sm text-gray-600 mt-2">ISTJ、ISFJ、ESTJ、ESFJ</p>
+                    <p class="text-xs text-gray-700 mt-3">責任感、秩序、照顧。教會的「脊椎骨」——穩定可靠。但需要放假避免burnout。</p>
+                </div>
+                <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
+                    <h3 class="font-bold text-lg text-red-600">🔴 SP (自由者)</h3>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">5,846人</p>
+                    <p class="text-sm text-gray-600 mt-2">ISTP、ISFP、ESTP、ESFP</p>
+                    <p class="text-xs text-gray-700 mt-3">體驗、即時、彈性。聚會有他們很HIGH。幫他們找「靈性的刺激感」，不只帶氣氛。</p>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-500">
+                    <h3 class="font-bold text-lg text-purple-600">🟣 NF (理想家)</h3>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">9,362人</p>
+                    <p class="text-sm text-gray-600 mt-2">INFJ、INFP、ENFJ、ENFP</p>
+                    <p class="text-xs text-gray-700 mt-3">意義、價值、連結。信仰強度最高！但容易孤獨(6/10)。需要被「看見」。</p>
+                </div>
+                <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                    <h3 class="font-bold text-lg text-green-600">🟢 NT (思想家)</h3>
+                    <p class="text-2xl font-bold text-gray-800 mt-2">4,341人</p>
+                    <p class="text-sm text-gray-600 mt-2">INTJ、INTP、ENTJ、ENTP</p>
+                    <p class="text-xs text-gray-700 mt-3">系統、思辨、獨立。只需要「更好的解釋」。提供神學深度，信仰會很堅實。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dimension Tab -->
+        <div id="dimension" class="tab-content space-y-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">E/I 向度 - 牧師真的需要是E人嗎？</h3>
+                    <span class="text-sm text-orange-600 font-medium">外向47.6% / 內向52.4%</span>
+                </div>
+                <div class="chart-container" style="height: 60px;">
+                    <canvas id="dimensionEIChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                    <p class="text-sm text-gray-700"><strong>💡 驚奇發現：</strong></p>
+                    <p class="text-sm text-gray-700 mt-2">牧者 I 53.5% vs 平信徒 I 52.4%，差距只有1個百分點！牧者並沒有比平信徒更外向。即使牧職工作看起來很「E」（講道、主持、探訪），但人格偏好並未因此呈現更多E。</p>
+                    <p class="text-sm text-gray-700 mt-2">📌 <strong>這提醒我們：</strong>「擅長公開表達」跟「靠社交獲得能量」本來就是兩件不同的事。</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">S/N 向度 - 牧者為什麼更「實際」</h3>
+                    <span class="text-sm text-orange-600 font-medium">實感55.2% / 直覺44.8%</span>
+                </div>
+                <div class="chart-container" style="height: 60px;">
+                    <canvas id="dimensionSNChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                    <p class="text-sm text-gray-700"><strong>🔍 深層分析：</strong></p>
+                    <p class="text-sm text-gray-700 mt-2">牧者 S 60.4% vs 平信徒 S 55.2%，相差5.2個百分點。牧者更傾向具體、現實、實際經驗導向。</p>
+                    <p class="text-sm text-gray-700 mt-2">原因？牧職工作充滿大量「真實人物、真實問題、真實行政、真實突發事件」—— 會友突然有狀況、臨時探訪、臨時代講、聚會流程改變。</p>
+                    <p class="text-sm text-gray-700 mt-2">💭 <strong>還是雞還是蛋？</strong>S型人格比較適應牧職，還是牧職本身讓人發展出更多S型行為？</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">T/F 向度 - 教會F人真的很多</h3>
+                    <span class="text-sm text-orange-600 font-medium">思考26.9% / 情感73.1%</span>
+                </div>
+                <div class="chart-container" style="height: 60px;">
+                    <canvas id="dimensionTFChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
+                    <p class="text-sm text-gray-700"><strong>🔥 最鮮明的特徵：</strong></p>
+                    <p class="text-sm text-gray-700 mt-2">平信徒73.1%、牧者70.5% 都是 F 型。<strong>每10個人，就有7個是F</strong>。這比E/I的差異大得多！</p>
+                    <p class="text-sm text-gray-700 mt-2">⚠️ <strong>注意：</strong>F 不等於「感性、沒有邏輯」。F是指在做判斷時，較容易把人的處境、價值、關係、影響納入考量。</p>
+                    <p class="text-sm text-gray-700 mt-2">💡 這跟教會文化中的「關懷、陪伴、人際連結、服事」完全吻合，形成一個值得討論的現象。</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">J/P 向度 - 最大的差異在這裡！</h3>
+                    <span class="text-sm text-orange-600 font-medium">判斷58.3% / 感知41.7%</span>
+                </div>
+                <div class="chart-container" style="height: 60px;">
+                    <canvas id="dimensionJPChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                    <p class="text-sm text-gray-700"><strong>🚨 牧者和平信徒的最大差異不是E/I，而是J/P！</strong></p>
+                    <p class="text-sm text-gray-700 mt-2">平信徒：J 58.3% / P 41.7% （偏J，喜歡計畫）<br>牧者：J 40.9% / P 59.1% （偏P，保持彈性）</p>
+                    <p class="text-sm text-gray-700 mt-2">差距高達17-18個百分點，遠比其他向度都明顯！幾乎整個翻過來了。</p>
+                    <p class="text-sm text-gray-700 mt-2">📌 <strong>牧會啟發：</strong>會友期待「可靠穩定的牧師」，但牧師們因為工作充滿變數，自然發展出高度的彈性應變能力。這可能是職業塑造了人格。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights Tab -->
+        <div id="insights" class="tab-content space-y-4">
+            <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 border-2 border-yellow-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-yellow-900 mb-2">① 牧者其實沒有比較E</h3>
+                <p class="text-gray-700">牧者 I 53.5% vs 平信徒 I 52.4%，差距只有1個百分點。牧師也有內向人，只是他們藉由講道、主持等技能補足。</p>
+                <p class="text-sm text-gray-600 mt-2">💡 重點：「擅長公開表達」≠「靠社交獲得能量」</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 border-2 border-yellow-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-yellow-900 mb-2">② 教會F人真的很多</h3>
+                <p class="text-gray-700">兩群都有約7成F（平信徒73.1%、牧者70.5%）。<strong>每10個人就有7個是F</strong>。</p>
+                <p class="text-sm text-gray-600 mt-2">F = 在做判斷時把「人的處境、價值、關係、影響」納入考量。完全吻合教會的「關懷、陪伴、服事」文化。</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-orange-900 mb-2">③ 平信徒前八名MBTI全部都是F型</h3>
+                <p class="text-gray-700">ESFJ(12.1%)→ISFJ(11.8%)→ESFP(9.1%)→ENFJ(9.0%)→INFJ(8.6%)→ENFP(8.1%)→ISFP(7.6%)→INFP(6.8%)</p>
+                <p class="text-sm text-gray-600 mt-2">直到第9名ISTJ(6.0%)才出現第一個T。這比說「73% F」更有視覺衝擊力！</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-red-900 mb-2">④ 平信徒偏J，牧者卻偏P — 最大結構差異</h3>
+                <p class="text-gray-700">平信徒 J 58.3% / P 41.7%   vs   牧者 J 40.9% / P 59.1%</p>
+                <p class="text-sm text-gray-600 mt-2">差異高達17-18個百分點！會友想要「有計畫的牧師」，但牧師們被工作的不可預測性磨成「高度彈性」的人。</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-green-900 mb-2">⑤ 每五位牧者，大約一位是ESFP</h3>
+                <p class="text-gray-700">牧者ESFP：336人，佔20.4%。第二名INFP才11.3%，差距足足9個百分點。</p>
+                <p class="text-sm text-gray-600 mt-2">ESFP特質：對人敏銳、現場感強、即時回應、靈活調整。完美適應牧職的不可預測性。</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-green-900 mb-2">⑥ ESFP在牧者中的比例是平信徒的約2.2倍</h3>
+                <p class="text-gray-700">平信徒ESFP 9.1% → 牧者ESFP 20.4%</p>
+                <p class="text-sm text-gray-600 mt-2">這是所有人格裡最值得注意的差異之一。牧職工作自然吸引並塑造了更多SP型人格。</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-blue-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-blue-900 mb-2">⑦ INFP、INTP、INTJ在牧者中都相對較多</h3>
+                <p class="text-gray-700">INTP：平信徒3.35% → 牧者6.06% (1.81倍)<br>INTJ：平信徒4.56% → 牧者6.73% (1.48倍)</p>
+                <p class="text-sm text-gray-600 mt-2">牧者不只有「很會關懷人的F型」，也有「理論思考、系統整理、深度分析」的人。</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-purple-100 border-2 border-purple-400 rounded-xl p-6">
+                <h3 class="font-bold text-lg text-purple-900 mb-2">⑧ 最意外：ENFJ消失了！</h3>
+                <p class="text-gray-700">平信徒9.0% → 牧者只有0.91%，只有1/10！<br>加上INFJ也大幅下降(8.63% → 2.79%)，NFJ合計從17.6%跌到3.7%。</p>
+                <p class="text-sm text-gray-600 mt-2">⚠️ <strong>重要：</strong>這不代表「ENFJ不適合當牧師」。需要檢查測驗題目、年齡結構、教派分布等因素。這是最需要進一步研究的發現。</p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-300 rounded-xl p-6 mt-6">
+                <h3 class="font-bold text-lg text-gray-900 mb-4">🎯 這8個發現可以直接用於社群媒體輪播</h3>
+                <p class="text-sm text-gray-700">每一張單獨拿出來都是一個引發討論的話題。適合做成IG Story、FB貼文、Podcast預告。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-yellow-200 bg-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8 text-center text-gray-600 text-sm">
+            <p>📊 數據統計自教會MBTI測驗 | 🎙️ 更多精彩內容請收聽《教會小本bon》Podcast</p>
+            <p class="mt-2">💭 想分享你的故事？歡迎Tag朋友一起探索 | 💛 黃橘綠色系設計</p>
+        </div>
+    </footer>
+
+    <script>
+        // 數據
+        const laypeopleData = [
+            { type: 'ESFJ馬大', count: 3482 },
+            { type: 'ISFJ路得', count: 3408 },
+            { type: 'ESFP撒馬利亞婦人', count: 2615 },
+            { type: 'ENFJ亞伯拉罕', count: 2594 },
+            { type: 'INFJ但以理', count: 2486 },
+            { type: 'ENFP巴拿巴', count: 2323 },
+            { type: 'ISFP大衛', count: 2182 },
+            { type: 'INFP約翰', count: 1959 },
+            { type: 'ISTJ尼希米', count: 1899 },
+            { type: 'INTJ保羅', count: 1312 },
+            { type: 'ESTJ摩西', count: 970 },
+            { type: 'INTP多馬', count: 964 },
+            { type: 'ISTP參孫', count: 890 },
+            { type: 'ENTJ底波拉', count: 635 },
+            { type: 'ENTP雅各', count: 618 },
+            { type: 'ESTP彼得', count: 459 },
+        ];
+
+        const pastorData = [
+            { type: 'ESFP馬利亞', count: 336 },
+            { type: 'INFP約翰', count: 187 },
+            { type: 'ISFJ以斯帖', count: 160 },
+            { type: 'ESFJ馬大', count: 150 },
+            { type: 'ENFP巴拿巴', count: 142 },
+            { type: 'ISTJ尼希米', count: 130 },
+            { type: 'ISFP以利沙', count: 126 },
+            { type: 'INTJ以利亞', count: 111 },
+            { type: 'INTP所羅門', count: 100 },
+            { type: 'ESTJ摩西', count: 50 },
+            { type: 'INFJ但以理', count: 46 },
+            { type: 'ENTP雅各', count: 39 },
+            { type: 'ESTP彼得', count: 22 },
+            { type: 'ISTP參孫', count: 22 },
+            { type: 'ENFJ亞伯拉罕', count: 15 },
+            { type: 'ENTJ底波拉', count: 13 },
+        ];
+
+        let charts = {};
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active', 'text-orange-600', 'border-orange-500'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active', 'text-orange-600', 'border-orange-500');
+
+            // Initialize charts on first load
+            setTimeout(() => {
+                if (tabName === 'ranking' && !charts.ranking) initRankingChart();
+                if (tabName === 'comparison' && !charts.comparison) initComparisonChart();
+                if (tabName === 'temperament' && !charts.temperament) initTemperamentChart();
+                if (tabName === 'dimension' && !charts.dimensionEI) initDimensionCharts();
+            }, 100);
+        }
+
+        function initRankingChart() {
+            const ctx = document.getElementById('rankingChart').getContext('2d');
+            charts.ranking = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: laypeopleData.map(d => d.type),
+                    datasets: [{
+                        label: '人數',
+                        data: laypeopleData.map(d => d.count),
+                        backgroundColor: [
+                            '#eab308', '#f59e0b', '#f97316', '#fb923c', '#fbbf24', '#fcd34d',
+                            '#10b981', '#34d399', '#22c55e', '#86efac', '#4ade80', '#6ee7b7',
+                            '#065f46', '#059669', '#047857', '#10b981'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initComparisonChart() {
+            const combinedData = [
+                { type: 'ESFJ', laypeople: 3482, pastor: 150 },
+                { type: 'ISFJ', laypeople: 3408, pastor: 160 },
+                { type: 'ESFP', laypeople: 2615, pastor: 336 },
+                { type: 'ENFJ', laypeople: 2594, pastor: 15 },
+                { type: 'INFJ', laypeople: 2486, pastor: 46 },
+                { type: 'ENFP', laypeople: 2323, pastor: 142 },
+                { type: 'ISFP', laypeople: 2182, pastor: 126 },
+                { type: 'INFP', laypeople: 1959, pastor: 187 },
+                { type: 'ISTJ', laypeople: 1899, pastor: 130 },
+                { type: 'INTJ', laypeople: 1312, pastor: 111 },
+                { type: 'ESTJ', laypeople: 970, pastor: 50 },
+                { type: 'INTP', laypeople: 964, pastor: 100 },
+                { type: 'ISTP', laypeople: 890, pastor: 22 },
+                { type: 'ENTJ', laypeople: 635, pastor: 13 },
+                { type: 'ENTP', laypeople: 618, pastor: 39 },
+                { type: 'ESTP', laypeople: 459, pastor: 22 },
+            ];
+
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            charts.comparison = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: combinedData.map(d => d.type),
+                    datasets: [
+                        {
+                            label: '平信徒',
+                            data: combinedData.map(d => d.laypeople),
+                            backgroundColor: '#eab308',
+                            borderRadius: [8, 8, 0, 0]
+                        },
+                        {
+                            label: '牧者',
+                            data: combinedData.map(d => d.pastor),
+                            backgroundColor: '#f97316',
+                            borderRadius: [8, 8, 0, 0]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function initTemperamentChart() {
+            const temperamentData = [
+                { label: 'SJ\n(守護者)', value: 9449, color: '#3b82f6' },
+                { label: 'SP\n(自由者)', value: 5846, color: '#ef4444' },
+                { label: 'NF\n(理想家)', value: 9362, color: '#a855f7' },
+                { label: 'NT\n(思想家)', value: 4341, color: '#22c55e' },
+            ];
+
+            const ctx = document.getElementById('temperamentChart').getContext('2d');
+            charts.temperament = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: temperamentData.map(d => d.label),
+                    datasets: [{
+                        data: temperamentData.map(d => d.value),
+                        backgroundColor: temperamentData.map(d => d.color),
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function initDimensionCharts() {
+            // E/I
+            let ctx = document.getElementById('dimensionEIChart').getContext('2d');
+            charts.dimensionEI = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['E/I'],
+                    datasets: [
+                        { label: 'E (外向)', data: [13702], backgroundColor: '#eab308' },
+                        { label: 'I (內向)', data: [15094], backgroundColor: '#22c55e' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+
+            // S/N
+            ctx = document.getElementById('dimensionSNChart').getContext('2d');
+            charts.dimensionSN = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['S/N'],
+                    datasets: [
+                        { label: 'S (實感)', data: [15862], backgroundColor: '#eab308' },
+                        { label: 'N (直覺)', data: [12934], backgroundColor: '#22c55e' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+
+            // T/F
+            ctx = document.getElementById('dimensionTFChart').getContext('2d');
+            charts.dimensionTF = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['T/F'],
+                    datasets: [
+                        { label: 'T (思考)', data: [7760], backgroundColor: '#eab308' },
+                        { label: 'F (情感)', data: [21036], backgroundColor: '#22c55e' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+
+            // J/P
+            ctx = document.getElementById('dimensionJPChart').getContext('2d');
+            charts.dimensionJP = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['J/P'],
+                    datasets: [
+                        { label: 'J (判斷)', data: [16788], backgroundColor: '#eab308' },
+                        { label: 'P (感知)', data: [12008], backgroundColor: '#22c55e' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+        }
+
+        // 初始化第一個圖表
+        window.addEventListener('load', () => {
+            initRankingChart();
+        });
+    </script>
+</body>
+</html>
