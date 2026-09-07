@@ -244,4 +244,543 @@
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             margin: 30px 0;
-            border: 1px
+            border: 1px solid #f0f0f0;
+        }
+
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .chart-subtitle {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .chart-inner {
+            position: relative;
+            height: 350px;
+            margin-bottom: 20px;
+        }
+
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .dimension-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dimension-box:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .dimension-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .dimension-value {
+            font-size: 0.85rem;
+            color: #f97316;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .dimension-bar {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .dimension-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            animation: fillBar 1s ease-out forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--fill); }
+        }
+
+        .dimension-insight {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .temperament-section {
+            background: white;
+        }
+
+        .temperament-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .temperament-card {
+            position: relative;
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .temperament-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .temperament-card.sj {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+
+        .temperament-card.sp {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .temperament-card.nf {
+            background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+        }
+
+        .temperament-card.nt {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        }
+
+        .temperament-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .temperament-emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .temperament-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .temperament-count {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .temperament-types {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .temperament-trait {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #374151 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero .stats {
+                gap: 30px;
+            }
+
+            .stat-box {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .discovery-card {
+                padding: 30px;
+            }
+
+            .temperament-card {
+                min-height: 280px;
+                padding: 30px;
+            }
+
+            .discovery-number {
+                font-size: 3rem;
+            }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>教會人格圖鑑</h1>
+            <p class="subtitle">探索30,445位基督徒的MBTI大數據</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">28,796</div>
+                    <div class="stat-label">平信徒</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1,649</div>
+                    <div class="stat-label">牧者</div>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="document.getElementById('discoveries').scrollIntoView()">
+                探索數據 ↓
+            </button>
+        </div>
+    </section>
+
+    <section class="discoveries" id="discoveries">
+        <h2 class="section-title">🔥 8個驚奇發現</h2>
+        
+        <div class="discovery-grid">
+            <div class="discovery-card">
+                <div class="discovery-number">① </div>
+                <div class="discovery-title">牧者其實沒有比較E</div>
+                <div class="discovery-text">牧者 I 53.5% vs 平信徒 I 52.4%，差距只有1個百分點。「擅長公開表達」≠「靠社交獲得能量」</div>
+            </div>
+
+            <div class="discovery-card orange">
+                <div class="discovery-number">②</div>
+                <div class="discovery-title">教會F人真的很多</div>
+                <div class="discovery-text">平信徒73.1%、牧者70.5%都是F型。每10個人就有7個是F，完全吻合教會的「關懷」文化。</div>
+            </div>
+
+            <div class="discovery-card green">
+                <div class="discovery-number">③</div>
+                <div class="discovery-title">平信徒前8名全是F</div>
+                <div class="discovery-text">ESFJ→ISFJ→ESFP→ENFJ→INFJ→ENFP→ISFP→INFP，直到第9名ISTJ才出現T</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">④</div>
+                <div class="discovery-title">J/P大翻轉</div>
+                <div class="discovery-text">平信徒偏J(58.3%)，牧者卻偏P(59.1%)。差異17-18個百分點，是最大的結構差異！</div>
+            </div>
+
+            <div class="discovery-card orange">
+                <div class="discovery-number">⑤</div>
+                <div class="discovery-title">每5位牧者有1位ESFP</div>
+                <div class="discovery-text">牧者ESFP：20.4%，是平信徒9.1%的2.24倍。現場感強、靈敏度高、彈性應變</div>
+            </div>
+
+            <div class="discovery-card green">
+                <div class="discovery-number">⑥</div>
+                <div class="discovery-title">INFP、INTP比想得多</div>
+                <div class="discovery-text">牧者中NT型（INTP、INTJ）反而比平信徒多。不只有「關懷人的F型」</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">⑦</div>
+                <div class="discovery-title">牧者為什麼更實際</div>
+                <div class="discovery-text">牧者 S 60.4% vs 平信徒 S 55.2%。真實人物、真實問題、真實突發事件，磨出了S型思維。</div>
+            </div>
+
+            <div class="discovery-card orange">
+                <div class="discovery-number">⑧</div>
+                <div class="discovery-title">ENFJ消失謎團</div>
+                <div class="discovery-text">平信徒9.0% → 牧者0.91%，只有1/10！NFJ合計：17.6% → 3.7%，這需要進一步調查。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section" id="ranking">
+        <h2 class="section-title">🏆 16型排行榜</h2>
+        <div class="chart-container">
+            <div class="chart-title">平信徒 MBTI 分布</div>
+            <div class="chart-subtitle">28,796人 - 每個類型的人數排序</div>
+            <div class="chart-inner">
+                <canvas id="rankingChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison">
+        <h2 class="section-title">⚖️ 牧者 vs 平信徒</h2>
+        <div class="chart-container">
+            <div class="chart-title">16型對比分析</div>
+            <div class="chart-subtitle">平信徒 vs 牧者 - 看看誰更多</div>
+            <div class="chart-inner">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section" id="dimensions">
+        <h2 class="section-title">📐 四大向度分析</h2>
+        
+        <div class="dimension-grid">
+            <div class="dimension-box">
+                <div class="dimension-label">E / I 向度</div>
+                <div class="dimension-value">外向47.6% / 內向52.4%</div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="--fill: 47.6%;"></div>
+                </div>
+                <div class="dimension-insight">牧者和平信徒差異極小(只差1%)。牧職本身沒有讓人更外向。</div>
+            </div>
+
+            <div class="dimension-box">
+                <div class="dimension-label">S / N 向度</div>
+                <div class="dimension-value">實感55.2% / 直覺44.8%</div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="--fill: 55.2%;"></div>
+                </div>
+                <div class="dimension-insight">牧者更S (60.4%)。真實人物、真實問題不斷磨練他們。</div>
+            </div>
+
+            <div class="dimension-box">
+                <div class="dimension-label">T / F 向度</div>
+                <div class="dimension-value">思考26.9% / 情感73.1%</div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="--fill: 73.1%;"></div>
+                </div>
+                <div class="dimension-insight">F人佔絕大多數！教會文化天然吸引感情型的人。</div>
+            </div>
+
+            <div class="dimension-box">
+                <div class="dimension-label">J / P 向度</div>
+                <div class="dimension-value">判斷58.3% / 感知41.7%</div>
+                <div class="dimension-bar">
+                    <div class="dimension-bar-fill" style="--fill: 58.3%;"></div>
+                </div>
+                <div class="dimension-insight">最大差異！平信徒偏J，牧者卻偏P(59.1%)。差17個百分點！</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="temperament-section" id="temperament">
+        <h2 class="section-title">🎨 四大氣質深度解析</h2>
+        
+        <div class="temperament-grid">
+            <div class="temperament-card sj">
+                <div class="temperament-emoji">🔵</div>
+                <div class="temperament-name">SJ 守護者</div>
+                <div class="temperament-count">9,449人</div>
+                <div class="temperament-types">ISTJ、ISFJ、ESTJ、ESFJ</div>
+                <div class="temperament-trait">教會的「脊椎骨」。責任感強、動穩定。容易過度承諾需要放假。信仰強度7.75，是教會基礎。</div>
+            </div>
+
+            <div class="temperament-card sp">
+                <div class="temperament-emoji">🔴</div>
+                <div class="temperament-name">SP 自由者</div>
+                <div class="temperament-count">5,846人</div>
+                <div class="temperament-types">ISTP、ISFP、ESTP、ESFP</div>
+                <div class="temperament-trait">聚會有他們很HIGH。體驗導向、彈性高。靈性深度需加強。幫他們找「信仰的刺激感」。</div>
+            </div>
+
+            <div class="temperament-card nf">
+                <div class="temperament-emoji">🟣</div>
+                <div class="temperament-name">NF 理想家</div>
+                <div class="temperament-count">9,362人</div>
+                <div class="temperament-types">INFJ、INFP、ENFJ、ENFP</div>
+                <div class="temperament-trait">信仰最深(8.25)！尋求靈性深度和意義。孤獨感最高(6/10)。需要被「看見」而非「利用」。</div>
+            </div>
+
+            <div class="temperament-card nt">
+                <div class="temperament-emoji">🟢</div>
+                <div class="temperament-name">NT 思想家</div>
+                <div class="temperament-count">4,341人</div>
+                <div class="temperament-types">INTJ、INTP、ENTJ、ENTP</div>
+                <div class="temperament-trait">常被說「信心不足」，其實只需「更好的解釋」。提供神學深度，信仰會很堅實。</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>📊 數據統計自教會MBTI測驗 | 30,445位基督徒的真實數據</p>
+        <p>🎙️ 更多精彩內容請收聽《教會小本bon》Podcast</p>
+        <p>💭 想分享你的故事？歡迎Tag朋友一起探索</p>
+        <p style="margin-top: 30px; opacity: 0.7;">© 2024 教會人格圖鑑 | 黃橘綠色系設計</p>
+    </footer>
+
+    <script>
+        const laypeopleData = [
+            { type: 'ESFJ馬大', count: 3482 },
+            { type: 'ISFJ路得', count: 3408 },
+            { type: 'ESFP撒馬利亞婦人', count: 2615 },
+            { type: 'ENFJ亞伯拉罕', count: 2594 },
+            { type: 'INFJ但以理', count: 2486 },
+            { type: 'ENFP巴拿巴', count: 2323 },
+            { type: 'ISFP大衛', count: 2182 },
+            { type: 'INFP約翰', count: 1959 },
+            { type: 'ISTJ尼希米', count: 1899 },
+            { type: 'INTJ保羅', count: 1312 },
+            { type: 'ESTJ摩西', count: 970 },
+            { type: 'INTP多馬', count: 964 },
+            { type: 'ISTP參孫', count: 890 },
+            { type: 'ENTJ底波拉', count: 635 },
+            { type: 'ENTP雅各', count: 618 },
+            { type: 'ESTP彼得', count: 459 },
+        ];
+
+        const combinedData = [
+            { type: 'ESFJ', laypeople: 3482, pastor: 150 },
+            { type: 'ISFJ', laypeople: 3408, pastor: 160 },
+            { type: 'ESFP', laypeople: 2615, pastor: 336 },
+            { type: 'ENFJ', laypeople: 2594, pastor: 15 },
+            { type: 'INFJ', laypeople: 2486, pastor: 46 },
+            { type: 'ENFP', laypeople: 2323, pastor: 142 },
+            { type: 'ISFP', laypeople: 2182, pastor: 126 },
+            { type: 'INFP', laypeople: 1959, pastor: 187 },
+            { type: 'ISTJ', laypeople: 1899, pastor: 130 },
+            { type: 'INTJ', laypeople: 1312, pastor: 111 },
+            { type: 'ESTJ', laypeople: 970, pastor: 50 },
+            { type: 'INTP', laypeople: 964, pastor: 100 },
+            { type: 'ISTP', laypeople: 890, pastor: 22 },
+            { type: 'ENTJ', laypeople: 635, pastor: 13 },
+            { type: 'ENTP', laypeople: 618, pastor: 39 },
+            { type: 'ESTP', laypeople: 459, pastor: 22 },
+        ];
+
+        window.addEventListener('load', () => {
+            initRankingChart();
+            initComparisonChart();
+        });
+
+        function initRankingChart() {
+            const ctx = document.getElementById('rankingChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: laypeopleData.map(d => d.type),
+                    datasets: [{
+                        label: '人數',
+                        data: laypeopleData.map(d => d.count),
+                        backgroundColor: [
+                            '#fbbf24', '#f97316', '#fb923c', '#fcd34d', '#10b981', '#34d399',
+                            '#22c55e', '#86efac', '#4ade80', '#6ee7b7', '#065f46', '#059669',
+                            '#047857', '#10b981', '#16a34a', '#22c55e'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: { callback: v => v.toLocaleString() }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initComparisonChart() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: combinedData.map(d => d.type),
+                    datasets: [
+                        {
+                            label: '平信徒',
+                            data: combinedData.map(d => d.laypeople),
+                            backgroundColor: '#fbbf24',
+                            borderRadius: [8, 8, 0, 0]
+                        },
+                        {
+                            label: '牧者',
+                            data: combinedData.map(d => d.pastor),
+                            backgroundColor: '#f97316',
+                            borderRadius: [8, 8, 0, 0]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
