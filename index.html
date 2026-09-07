@@ -29,7 +29,6 @@
             --light: #f9fafb;
         }
 
-        /* Hero */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 25%, #fef08a 50%, #fdeaa8 100%);
@@ -140,7 +139,6 @@
             }
         }
 
-        /* Sections */
         section {
             padding: 70px 20px;
             max-width: 1200px;
@@ -224,52 +222,60 @@
             color: #555;
         }
 
-        /* 比較圖表 */
         .comparison-section {
             background: linear-gradient(180deg, #f9fafb 0%, white 100%);
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
 
         .comparison-card {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 12px;
-            border-left: 5px solid #f97316;
+            border-top: 4px solid #f97316;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .comparison-type {
-            font-weight: 700;
+            font-weight: 900;
             color: #f97316;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 12px;
         }
 
         .comparison-bars {
             display: flex;
-            gap: 15px;
+            gap: 30px;
             align-items: flex-end;
-            margin: 15px 0;
-            height: 60px;
+            height: 100px;
+            justify-content: center;
+            padding: 15px 0;
+            background: #fef9e7;
+            border-radius: 8px;
         }
 
         .bar-item {
             flex: 1;
             text-align: center;
+            max-width: 100px;
         }
 
         .bar {
             background: linear-gradient(180deg, #fbbf24 0%, #fed7aa 100%);
             border-radius: 4px 4px 0 0;
             margin-bottom: 8px;
-            min-height: 40px;
+            min-height: 50px;
             position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .bar.pastor {
@@ -277,22 +283,22 @@
         }
 
         .bar-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #666;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .bar-percent {
             position: absolute;
-            top: -20px;
+            top: -28px;
             left: 50%;
             transform: translateX(-50%);
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-weight: 900;
+            font-size: 0.95rem;
             color: #f97316;
+            white-space: nowrap;
         }
 
-        /* 分析卡片 */
         .analysis-box {
             background: white;
             padding: 30px;
@@ -326,7 +332,6 @@
             color: #744210;
         }
 
-        /* 向度分析 */
         .dimension-section {
             background: white;
         }
@@ -371,7 +376,6 @@
             border-top: 1px solid #e5e7eb;
         }
 
-        /* 氣質卡片 */
         .temperament-section {
             background: linear-gradient(180deg, #f9fafb 0%, white 100%);
         }
@@ -450,7 +454,6 @@
             padding-top: 10px;
         }
 
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
             color: white;
@@ -478,11 +481,21 @@
             }
 
             .comparison-bars {
-                height: 50px;
+                height: 80px;
+                gap: 15px;
+            }
+
+            .bar-percent {
+                font-size: 0.8rem;
+                top: -24px;
             }
 
             .temperament-card {
                 min-height: 300px;
+                padding: 20px;
+            }
+
+            .comparison-card {
                 padding: 20px;
             }
         }
@@ -574,14 +587,13 @@
         <div class="analysis-box">
             <div class="analysis-title">📊 為什麼用百分比？</div>
             <div class="analysis-text">
-                因為牧者(1,649人)和平信徒(28,796人)的人數差距懸殊(17倍)，直接比較人數會失真。
-                用百分比才能看出真正的人格分布差異。
+                因為牧者(1,649人)和平信徒(28,796人)的人數差距懸殊(17倍)，直接比較人數會失真。用百分比才能看出真正的人格分布差異。
             </div>
         </div>
 
         <div class="comparison-grid">
             <div class="comparison-card">
-                <div class="comparison-type">ESFJ (12.1% → 9.1%)</div>
+                <div class="comparison-type">ESFJ 馬大型</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 70%;"><span class="bar-percent">12.1%</span></div>
@@ -592,11 +604,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">馬大型——責任感最強，服事最認真。牧者比例略低，可能因為牧職需要更多P型的彈性。</div>
+                <div class="analysis-text">責任感最強，服事最認真。牧者比例略低，因牧職需要更多彈性。</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">ISFJ (11.8% → 9.7%)</div>
+                <div class="comparison-type">ISFJ 路得型</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 68%;"><span class="bar-percent">11.8%</span></div>
@@ -607,11 +619,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">路得型——溫和、穩定、默默服事。兩群都比例高，是教會的基礎。</div>
+                <div class="analysis-text">溫和、穩定、默默服事。兩群都比例高，是教會基礎。</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">ESFP (9.1% → 20.4%)</div>
+                <div class="comparison-type">🚀 ESFP 撒馬利亞婦人</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 33%;"><span class="bar-percent">9.1%</span></div>
@@ -622,11 +634,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">🚀 最大差異！牧者是平信徒的2.24倍。現場感強，能在混亂中應變。</div>
+                <div class="analysis-text"><strong>最大差異！牧者是平信徒的2.24倍。</strong>現場感強，能在混亂中應變。</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">ENFJ (9.0% → 0.91%)</div>
+                <div class="comparison-type">❓ ENFJ 亞伯拉罕</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 70%;"><span class="bar-percent">9.0%</span></div>
@@ -637,11 +649,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">❓ 謎團！為什麼平信徒最多的「領袖型」在牧者中幾乎消失？</div>
+                <div class="analysis-text"><strong>謎團！</strong>為什麼平信徒最多的「領袖型」在牧者中幾乎消失？</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">INFJ (8.6% → 2.79%)</div>
+                <div class="comparison-type">INFJ 但以理型</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 62%;"><span class="bar-percent">8.6%</span></div>
@@ -652,11 +664,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">但以理型——靈性深度高，也大幅下降。NFJ合計從17.6%跌到3.7%。</div>
+                <div class="analysis-text">靈性深度高，也大幅下降。NFJ合計：17.6% → 3.7%。</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">ENFP (8.1% → 8.6%)</div>
+                <div class="comparison-type">ENFP 巴拿巴型</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 47%;"><span class="bar-percent">8.1%</span></div>
@@ -667,11 +679,11 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">巴拿巴型——相對穩定。ENFP在兩群差不多，說明靈活創意型相對平衡。</div>
+                <div class="analysis-text">相對穩定。兩群差不多，靈活創意型相對平衡。</div>
             </div>
 
             <div class="comparison-card">
-                <div class="comparison-type">INFP (6.8% → 11.3%)</div>
+                <div class="comparison-type">INFP 約翰型</div>
                 <div class="comparison-bars">
                     <div class="bar-item">
                         <div class="bar" style="height: 40%;"><span class="bar-percent">6.8%</span></div>
@@ -682,7 +694,7 @@
                         <div class="bar-label">牧者</div>
                     </div>
                 </div>
-                <div class="analysis-text" style="margin-top: 15px;">約翰型——內向但信仰深。牧者中大幅上升(1.67倍)，說明內向靈性型適合牧職。</div>
+                <div class="analysis-text"><strong>內向但信仰深。</strong>牧者中大幅上升(1.67倍)，內向靈性型適合牧職。</div>
             </div>
         </div>
     </section>
