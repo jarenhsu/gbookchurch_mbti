@@ -178,23 +178,24 @@
             border-radius: 2px;
         }
 
-        .section-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            margin: 30px 0;
-        }
-
         .discoveries {
             background: white;
         }
 
-        .discovery-grid {
+        .discovery-item {
+            margin-bottom: 50px;
+        }
+
+        .discovery-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .discovery-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .discovery-card {
@@ -253,12 +254,20 @@
             z-index: 2;
         }
 
-        .discovery-text {
+        .discovery-desc {
             font-size: 0.95rem;
             line-height: 1.8;
             color: #555;
             position: relative;
             z-index: 2;
+        }
+
+        .discovery-image {
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 100%;
+            height: auto;
         }
 
         .story-section {
@@ -510,6 +519,11 @@
                 font-size: 1.6rem;
             }
 
+            .discovery-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .discovery-card {
                 padding: 25px;
             }
@@ -551,55 +565,115 @@
         <h2 class="section-title">🔥 不能不知道的8個真相</h2>
         <p class="section-subtitle">你對教會、牧師、和自己的認知，可能都需要更新。</p>
 
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep07.png" alt="信徒故事" class="section-image">
-        
-        <div class="discovery-grid">
-            <div class="discovery-card">
-                <div class="discovery-number">1️⃣</div>
-                <div class="discovery-title">牧師比你想的內向</div>
-                <div class="discovery-text">牧者 53.5% 是內向人，平信徒只有 52.4%。驚人吧？你以為講台要外向，其實不一定。內向牧師通過技能補足，一樣能帶領 500 人的聚會。</div>
+        <!-- 發現 1 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <div class="discovery-text">
+                    <div class="discovery-card">
+                        <div class="discovery-number">1️⃣</div>
+                        <div class="discovery-title">牧師比你想的內向</div>
+                        <div class="discovery-desc">牧者 53.5% 是內向人，平信徒只有 52.4%。驚人吧？你以為講台要外向，其實不一定。內向牧師通過技能補足，一樣能帶領 500 人的聚會。</div>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep01-1.png" alt="牧師比你想的內向" class="discovery-image">
             </div>
+        </div>
 
-            <div class="discovery-card orange">
-                <div class="discovery-number">2️⃣</div>
-                <div class="discovery-title">教會人都很「感性」</div>
-                <div class="discovery-text">73.1% 平信徒、70.5% 牧者都是感情型。每 10 個教會人，有 7 個重視「人」勝過「事」。這不是教會有問題，而是教會的文化就是這樣吸引人的。</div>
+        <!-- 發現 2 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep02-1.png" alt="教會人都很感性" class="discovery-image">
+                <div class="discovery-text">
+                    <div class="discovery-card orange">
+                        <div class="discovery-number">2️⃣</div>
+                        <div class="discovery-title">教會人都很「感性」</div>
+                        <div class="discovery-desc">73.1% 平信徒、70.5% 牧者都是感情型。每 10 個教會人，有 7 個重視「人」勝過「事」。這不是教會有問題，而是教會的文化就是這樣吸引人的。</div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="discovery-card green">
-                <div class="discovery-number">3️⃣</div>
-                <div class="discovery-title">平信徒排行榜全是感情型</div>
-                <div class="discovery-text">前 8 名都是感情型人（ESFJ > ISFJ > ESFP > ENFJ > INFJ > ENFP > ISFP > INFP）。直到第 9 名（ISTJ 思考型）才出現第一個不同的聲音。</div>
+        <!-- 發現 3 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <div class="discovery-text">
+                    <div class="discovery-card green">
+                        <div class="discovery-number">3️⃣</div>
+                        <div class="discovery-title">平信徒排行榜全是感情型</div>
+                        <div class="discovery-desc">前 8 名都是感情型人（ESFJ > ISFJ > ESFP > ENFJ > INFJ > ENFP > ISFP > INFP）。直到第 9 名（ISTJ 思考型）才出現第一個不同的聲音。</div>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep3.png" alt="平信徒排行榜全是感情型" class="discovery-image">
             </div>
+        </div>
 
-            <div class="discovery-card">
-                <div class="discovery-number">4️⃣</div>
-                <div class="discovery-title">牧師和信徒最大的差別是「計畫感」</div>
-                <div class="discovery-text">平信徒偏愛「有計畫」(58.3%)，牧者卻更「靈活變通」(59.1%)。差 17 個百分點！會友期待「穩定的牧師」，牧師實際卻被訓練成「高手應變者」。</div>
+        <!-- 發現 4 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep04-1.png" alt="牧師和信徒最大的差別是計畫感" class="discovery-image">
+                <div class="discovery-text">
+                    <div class="discovery-card">
+                        <div class="discovery-number">4️⃣</div>
+                        <div class="discovery-title">牧師和信徒最大的差別是「計畫感」</div>
+                        <div class="discovery-desc">平信徒偏愛「有計畫」(58.3%)，牧者卻更「靈活變通」(59.1%)。差 17 個百分點！會友期待「穩定的牧師」，牧師實際卻被訓練成「高手應變者」。</div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="discovery-card orange">
-                <div class="discovery-number">5️⃣</div>
-                <div class="discovery-title">每 5 個牧者有 1 個 ESFP</div>
-                <div class="discovery-text">牧者裡 20.4% 是 ESFP，但平信徒只有 9.1%。現場感強、能即時反應、靈敏度高的人，自然流向牧職。或者說，牧職工作選擇了他們。</div>
+        <!-- 發現 5 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <div class="discovery-text">
+                    <div class="discovery-card orange">
+                        <div class="discovery-number">5️⃣</div>
+                        <div class="discovery-title">每 5 個牧者有 1 個 ESFP</div>
+                        <div class="discovery-desc">牧者裡 20.4% 是 ESFP，但平信徒只有 9.1%。現場感強、能即時反應、靈敏度高的人，自然流向牧職。或者說，牧職工作選擇了他們。</div>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep05.png" alt="每5個牧者有1個ESFP" class="discovery-image">
             </div>
+        </div>
 
-            <div class="discovery-card green">
-                <div class="discovery-number">6️⃣</div>
-                <div class="discovery-title">牧者比你想的理性</div>
-                <div class="discovery-text">INTP（思想家）在牧者裡是平信徒的 1.81 倍，INTJ 是 1.48 倍。牧者不只有「溫暖的靈性領袖」，也有很多「神學思辨者」。</div>
+        <!-- 發現 6 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep06-1.png" alt="牧者比你想的理性" class="discovery-image">
+                <div class="discovery-text">
+                    <div class="discovery-card green">
+                        <div class="discovery-number">6️⃣</div>
+                        <div class="discovery-title">牧者比你想的理性</div>
+                        <div class="discovery-desc">INTP（思想家）在牧者裡是平信徒的 1.81 倍，INTJ 是 1.48 倍。牧者不只有「溫暖的靈性領袖」，也有很多「神學思辨者」。</div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="discovery-card">
-                <div class="discovery-number">7️⃣</div>
-                <div class="discovery-title">牧師更「務實」</div>
-                <div class="discovery-text">牧者 60.4% 實感型，平信徒 55.2%。會友失業、婚姻危機、教會風暴…… 這些「真實發生的事」，一次次磨練了牧師的現實感。</div>
+        <!-- 發現 7 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <div class="discovery-text">
+                    <div class="discovery-card">
+                        <div class="discovery-number">7️⃣</div>
+                        <div class="discovery-title">牧師更「務實」</div>
+                        <div class="discovery-desc">牧者 60.4% 實感型，平信徒 55.2%。會友失業、婚姻危機、教會風暴…… 這些「真實發生的事」，一次次磨練了牧師的現實感。</div>
+                    </div>
+                </div>
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep07.png" alt="牧師更務實" class="discovery-image">
             </div>
+        </div>
 
-            <div class="discovery-card orange">
-                <div class="discovery-number">❓</div>
-                <div class="discovery-title">ENFJ 為什麼消失了？</div>
-                <div class="discovery-text">平信徒 9.0% 是 ENFJ，牧者只有 0.91%。這是最神秘的發現。為什麼最「像領袖」的類型，在牧者中幾乎看不到？</div>
+        <!-- 發現 8 -->
+        <div class="discovery-item">
+            <div class="discovery-content">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep08-1.png" alt="ENFJ為什麼消失了" class="discovery-image">
+                <div class="discovery-text">
+                    <div class="discovery-card orange">
+                        <div class="discovery-number">❓</div>
+                        <div class="discovery-title">ENFJ 為什麼消失了？</div>
+                        <div class="discovery-desc">平信徒 9.0% 是 ENFJ，牧者只有 0.91%。這是最神秘的發現。為什麼最「像領袖」的類型，在牧者中幾乎看不到？</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -608,8 +682,6 @@
     <section class="story-section" id="comparison">
         <h2 class="section-title">⚖️ 信徒 vs 牧者：一個有趣的對比故事</h2>
         <p class="section-subtitle">同樣是教會人，為什麼人格分布這麼不一樣？</p>
-
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep03.png" alt="數據故事" class="section-image">
         
         <div class="story-intro">
             <div class="story-intro-title">📊 關鍵發現</div>
@@ -745,8 +817,6 @@
         <h2 class="section-title">🔍 向度故事：人格如何在牧職中改變</h2>
         <p class="section-subtitle">四個向度的對話，揭開教會人格的祕密。</p>
 
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep02-1.png" alt="牧者內心OS" class="section-image">
-
         <div class="insight-box">
             <div class="insight-title">💬 E/I 向度：「牧師也會社交焦慮」</div>
             <div class="insight-text">
@@ -786,8 +856,6 @@
             </div>
         </div>
 
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep01-1.png" alt="教會是F人的大本營" class="section-image">
-
         <div class="insight-box">
             <div class="insight-title">🚨 J/P 向度：「牧職如何改變了人的性格」</div>
             <div class="insight-text">
@@ -807,8 +875,6 @@
     <section class="temperament-section" id="temperament">
         <h2 class="section-title">🎨 四大氣質：教會的四種靈魂</h2>
         <p class="section-subtitle">他們各自扮演什麼角色？又面臨什麼挑戰？</p>
-
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep05.png" alt="氣質探討" class="section-image">
         
         <div class="temperament-grid">
             <div class="temperament-card sj">
@@ -881,28 +947,10 @@
         </div>
     </section>
 
-    <!-- 牧者洞察 -->
-    <section id="pastor-insights">
-        <h2 class="section-title">👨牧 牧者深度洞察</h2>
-        <p class="section-subtitle">誰說牧者一定要有某種人格？</p>
-
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep06-1.png" alt="牧者洞察" class="section-image">
-
-        <div class="insight-box">
-            <div class="insight-title">📊 牧者人格全景</div>
-            <div class="insight-text">
-                牧者和平信徒的人格分布其實沒有想像中那麼不同。真正的差異來自於工作對人格的塑造，而不是職業挑選了某種特定的人格。<br><br>
-                最驚人的是 J/P 向度的反轉——牧職工作把計畫型的人改變成了應變型，這是職業的力量。
-            </div>
-        </div>
-    </section>
-
     <!-- ENFJ謎團 -->
     <section id="mystery">
         <h2 class="section-title">❓ ENFJ 消失謎團：柯南破案時間</h2>
         <p class="section-subtitle">為什麼平信徒最多的類型，在牧者中幾乎看不到？</p>
-
-        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep08-1.png" alt="ENFJ謎團" class="section-image">
 
         <div class="insight-box">
             <div class="insight-title">📊 謎團的證據</div>
