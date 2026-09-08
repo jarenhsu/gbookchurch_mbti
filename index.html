@@ -1,3 +1,1237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教會人格圖鑑 - 30,445位基督徒的真實故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.75;
+            color: #2c2c2c;
+            background: #fafafa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: #d1d5db;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #fbbf24;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 45px;
+            background: #f97316;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #f97316;
+            margin: 20px auto 40px;
+        }
+
+        .discoveries {
+            background: white;
+        }
+
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .discovery-card {
+            background: white;
+            padding: 45px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .discovery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #f97316;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .discovery-card:hover {
+            border-color: #f97316;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .discovery-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .discovery-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .discovery-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .discovery-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        /* 16型統計 */
+        .mbti-section {
+            background: white;
+        }
+
+        .mbti-container {
+            margin-top: 50px;
+        }
+
+        .mbti-column {
+            margin-bottom: 60px;
+        }
+
+        .mbti-column-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f97316;
+        }
+
+        .mbti-rankings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .mbti-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px;
+            background: #fafafa;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .mbti-item:hover {
+            background: #f3f4f6;
+            border-color: #f97316;
+        }
+
+        .mbti-rank {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #f97316;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .mbti-info {
+            flex: 1;
+        }
+
+        .mbti-type {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .mbti-name {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .mbti-percent {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        .story-section {
+            background: white;
+        }
+
+        .story-intro {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            padding: 50px;
+            border-radius: 0;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-intro-title {
+            font-weight: 700;
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .story-intro-text {
+            color: #e5e7eb;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 35px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-type {
+            font-weight: 900;
+            color: #f97316;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-bars {
+            display: flex;
+            gap: 25px;
+            align-items: flex-end;
+            height: 100px;
+            justify-content: center;
+            padding: 15px 0;
+            background: #fafafa;
+            border-radius: 0;
+            margin-bottom: 20px;
+        }
+
+        .bar-item {
+            flex: 1;
+            text-align: center;
+            max-width: 90px;
+        }
+
+        .bar {
+            background: linear-gradient(180deg, #fbbf24 0%, #fed7aa 100%);
+            margin-bottom: 8px;
+            min-height: 50px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+            transition: all 0.3s;
+        }
+
+        .bar:hover {
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+        }
+
+        .bar.pastor {
+            background: linear-gradient(180deg, #f97316 0%, #fdba74 100%);
+        }
+
+        .bar-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bar-percent {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 900;
+            font-size: 1rem;
+            color: #f97316;
+        }
+
+        .comparison-insight {
+            background: #fafafa;
+            padding: 18px;
+            border-left: 3px solid #f97316;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .analysis-section {
+            background: white;
+        }
+
+        .insight-box {
+            background: white;
+            padding: 45px;
+            border: 1px solid #e5e7eb;
+            margin: 40px 0;
+            transition: all 0.3s ease;
+        }
+
+        .insight-box:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .insight-title {
+            font-weight: 900;
+            color: #1a1a1a;
+            font-size: 1.35rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .insight-text {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.9;
+        }
+
+        .insight-highlight {
+            background: #fef3c7;
+            padding: 25px;
+            border-left: 4px solid #f97316;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #744210;
+            line-height: 1.8;
+        }
+
+        .temperament-section {
+            background: white;
+        }
+
+        .temperament-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .temperament-card {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
+        }
+
+        .temperament-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #f97316;
+        }
+
+        .temperament-header {
+            padding: 30px;
+            color: white;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .temperament-card.sj .temperament-header {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+        }
+
+        .temperament-card.sp .temperament-header {
+            background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+        }
+
+        .temperament-card.nf .temperament-header {
+            background: linear-gradient(135deg, #fcd34d 0%, #fde047 100%);
+        }
+
+        .temperament-card.nt .temperament-header {
+            background: linear-gradient(135deg, #bfdb38 0%, #d4fc79 100%);
+        }
+
+        .temperament-name {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .temperament-name-sub {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #4b5563;
+        }
+
+        .temperament-body {
+            padding: 25px 30px;
+        }
+
+        .temperament-count {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #f97316;
+            margin-bottom: 12px;
+        }
+
+        .temperament-types {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .temperament-story {
+            font-size: 0.85rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 12px 0;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            letter-spacing: 0.3px;
+        }
+
+        footer .footer-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .discovery-card {
+                padding: 30px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .mbti-rankings {
+                grid-template-columns: 1fr;
+            }
+
+            .temperament-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>教會人格圖鑑</h1>
+            <p class="subtitle">30,445位基督徒的故事</p>
+            <p class="tagline">我們進行了一次完整的教會MBTI人格普查，<br>測驗28,796位平信徒和1,649位牧者，<br>發現這個世代教會最有趣的人格洞察。</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">28,796</div>
+                    <div class="stat-label">平信徒</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1,649</div>
+                    <div class="stat-label">牧者</div>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="document.getElementById('discoveries').scrollIntoView()">
+                深入閱讀
+            </button>
+        </div>
+    </section>
+
+    <!-- 核心發現 -->
+    <section class="discoveries" id="discoveries">
+        <h2 class="section-title">8 個真相</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">關於教會、牧師，以及我們對他們的認知。</p>
+        
+        <div class="discovery-grid">
+            <div class="discovery-card">
+                <div class="discovery-number">1</div>
+                <div class="discovery-title">牧師比想像的內向</div>
+                <div class="discovery-text">牧者中 <strong>53.5% 是內向人</strong>，平信徒也有 52.4%。講台上的號召力，來自技能，不一定來自天生的外向。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">2</div>
+                <div class="discovery-title">教會人都很「感性」</div>
+                <div class="discovery-text"><strong>73% 平信徒、70% 牧者都是感情型</strong>。每 10 個教會人裡，有 7 個重視「人」勝過「事」。這是教會的文化DNA。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">3</div>
+                <div class="discovery-title">排行榜全是感情型</div>
+                <div class="discovery-text"><strong>平信徒最常見的 8 種人格，全部都是感情型</strong>。直到排名第 9 才出現第一個思考型。這是多大的文化信號？</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">4</div>
+                <div class="discovery-title">最大的差別是「計畫感」</div>
+                <div class="discovery-text">平信徒偏好「有計畫」(58%)，牧者卻更「靈活變通」(59%)。<strong>17個百分點的落差</strong>。工作改變了人的性格。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">5</div>
+                <div class="discovery-title">每 5 位牧者有 1 位 ESFP</div>
+                <div class="discovery-text"><strong>牧者中 20.4% 是 ESFP</strong>，但平信徒只有 9.1%。現場感強、即時反應的人，自然被牧職吸引，或被牧職塑造。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">6</div>
+                <div class="discovery-title">牧者比想像的理性</div>
+                <div class="discovery-text"><strong>思考型人格（T）在牧者中比平信徒多 1.5 倍</strong>。牧者不只是情感帶領者，也有許多理論思考者。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">7</div>
+                <div class="discovery-title">牧師更務實</div>
+                <div class="discovery-text"><strong>牧者 60% 實感型</strong>，平信徒 55%。現實的衝擊，一次次磨練他們從抽象走向具體。職業塑造人。</div>
+            </div>
+
+            <div class="discovery-card">
+                <div class="discovery-number">？</div>
+                <div class="discovery-title">ENFJ 消失謎團</div>
+                <div class="discovery-text">平信徒 9.0% 是 ENFJ，牧者只有 <strong>0.91%——只有十分之一</strong>。最「像領袖」的類型，為何在牧師中幾乎看不到？</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16型統計 -->
+    <section class="mbti-section" id="mbti">
+        <h2 class="section-title">16 型排行榜</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">平信徒 vs 牧者的人格分布排名。</p>
+        
+        <div class="mbti-container">
+            <div class="mbti-column">
+                <div class="mbti-column-title">📊 平信徒排行榜</div>
+                <div class="mbti-rankings">
+                    <div class="mbti-item">
+                        <div class="mbti-rank">1</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFJ｜馬大型</div>
+                            <div class="mbti-name">外向感受感情判斷</div>
+                            <div class="mbti-percent">3,482人 / 12.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">2</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFJ｜路得型</div>
+                            <div class="mbti-name">內向感受感情判斷</div>
+                            <div class="mbti-percent">3,408人 / 11.8%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">3</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFP｜撒馬利亞婦人</div>
+                            <div class="mbti-name">外向感受感情感知</div>
+                            <div class="mbti-percent">2,615人 / 9.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">4</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFJ｜亞伯拉罕</div>
+                            <div class="mbti-name">外向直覺感情判斷</div>
+                            <div class="mbti-percent">2,594人 / 9.0%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">5</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFJ｜但以理型</div>
+                            <div class="mbti-name">內向直覺感情判斷</div>
+                            <div class="mbti-percent">2,486人 / 8.6%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">6</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFP｜巴拿巴型</div>
+                            <div class="mbti-name">外向直覺感情感知</div>
+                            <div class="mbti-percent">2,323人 / 8.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">7</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFP｜大衛型</div>
+                            <div class="mbti-name">內向感受感情感知</div>
+                            <div class="mbti-percent">2,182人 / 7.6%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">8</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFP｜約翰型</div>
+                            <div class="mbti-name">內向直覺感情感知</div>
+                            <div class="mbti-percent">1,959人 / 6.8%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">9</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTJ｜尼希米型</div>
+                            <div class="mbti-name">內向感受思考判斷</div>
+                            <div class="mbti-percent">1,899人 / 6.0%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">10</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTJ｜保羅型</div>
+                            <div class="mbti-name">內向直覺思考判斷</div>
+                            <div class="mbti-percent">1,312人 / 4.6%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">11</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTJ｜摩西型</div>
+                            <div class="mbti-name">外向感受思考判斷</div>
+                            <div class="mbti-percent">970人 / 3.4%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">12</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTP｜多馬型</div>
+                            <div class="mbti-name">內向直覺思考感知</div>
+                            <div class="mbti-percent">964人 / 3.4%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTP｜參孫型</div>
+                            <div class="mbti-name">內向感受思考感知</div>
+                            <div class="mbti-percent">890人 / 3.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">14</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTJ｜底波拉型</div>
+                            <div class="mbti-name">外向直覺思考判斷</div>
+                            <div class="mbti-percent">635人 / 2.2%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">15</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTP｜雅各型</div>
+                            <div class="mbti-name">外向直覺思考感知</div>
+                            <div class="mbti-percent">618人 / 2.2%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">16</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTP｜彼得型</div>
+                            <div class="mbti-name">外向感受思考感知</div>
+                            <div class="mbti-percent">459人 / 1.6%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mbti-column">
+                <div class="mbti-column-title">👨牧 牧者排行榜</div>
+                <div class="mbti-rankings">
+                    <div class="mbti-item">
+                        <div class="mbti-rank">1</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFP</div>
+                            <div class="mbti-name">外向感受感情感知｜平信徒：撒馬利亞婦人／牧者：馬利亞</div>
+                            <div class="mbti-percent">336人 / 20.4%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">2</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFP</div>
+                            <div class="mbti-name">內向直覺感情感知｜平信徒：約翰型／牧者：約翰型</div>
+                            <div class="mbti-percent">187人 / 11.3%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">3</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFJ</div>
+                            <div class="mbti-name">內向感受感情判斷｜平信徒：路得／牧者：以斯帖</div>
+                            <div class="mbti-percent">160人 / 9.7%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">4</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFJ</div>
+                            <div class="mbti-name">外向感受感情判斷｜平信徒：馬大型／牧者：馬大型</div>
+                            <div class="mbti-percent">150人 / 9.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">5</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFP</div>
+                            <div class="mbti-name">外向直覺感情感知｜平信徒：巴拿巴型／牧者：巴拿巴型</div>
+                            <div class="mbti-percent">142人 / 8.6%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">6</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTJ</div>
+                            <div class="mbti-name">內向感受思考判斷｜平信徒：尼希米型／牧者：尼希米型</div>
+                            <div class="mbti-percent">130人 / 7.9%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">7</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFP</div>
+                            <div class="mbti-name">內向感受感情感知｜平信徒：大衛／牧者：以利沙</div>
+                            <div class="mbti-percent">126人 / 7.6%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">8</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTJ</div>
+                            <div class="mbti-name">內向直覺思考判斷｜平信徒：保羅／牧者：以利亞</div>
+                            <div class="mbti-percent">111人 / 6.7%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">9</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTP</div>
+                            <div class="mbti-name">內向直覺思考感知｜平信徒：多馬／牧者：所羅門</div>
+                            <div class="mbti-percent">100人 / 6.1%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">10</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTJ</div>
+                            <div class="mbti-name">外向感受思考判斷｜平信徒：摩西型／牧者：摩西型</div>
+                            <div class="mbti-percent">50人 / 3.0%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">11</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFJ</div>
+                            <div class="mbti-name">內向直覺感情判斷｜平信徒：但以理／牧者：但以理</div>
+                            <div class="mbti-percent">46人 / 2.8%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">12</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTP</div>
+                            <div class="mbti-name">外向直覺思考感知｜平信徒：雅各型／牧者：雅各型</div>
+                            <div class="mbti-percent">39人 / 2.4%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTP</div>
+                            <div class="mbti-name">外向感受思考感知｜平信徒：彼得／牧者：彼得</div>
+                            <div class="mbti-percent">22人 / 1.3%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTP</div>
+                            <div class="mbti-name">內向感受思考感知｜平信徒：參孫型／牧者：參孫型</div>
+                            <div class="mbti-percent">22人 / 1.3%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">15</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFJ</div>
+                            <div class="mbti-name">外向直覺感情判斷｜平信徒：亞伯拉罕／牧者：亞伯拉罕</div>
+                            <div class="mbti-percent">15人 / 0.9%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">16</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTJ</div>
+                            <div class="mbti-name">外向直覺思考判斷｜平信徒：底波拉／牧者：底波拉</div>
+                            <div class="mbti-percent">13人 / 0.8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 牧者vs信徒故事 -->
+    <section class="story-section" id="comparison">
+        <h2 class="section-title">信徒 vs 牧者</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">同樣是教會人，人格分布卻大不相同。</p>
+        
+        <div class="story-intro">
+            <div class="story-intro-title">為什麼用百分比？</div>
+            <div class="story-intro-text">
+                牧者(1,649人)和平信徒(28,796人)相差17倍。直接比人數會騙人。百分比才能看出真正的人格結構差異。
+            </div>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <div class="comparison-type">ESFJ｜馬大型</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 70%;"><span class="bar-percent">12.1%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 53%;"><span class="bar-percent">9.1%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    <strong>最認真的服事者。</strong>牧職需要更多靈活性，所以 J 型人比例下降。
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">ISFJ｜路得型</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 68%;"><span class="bar-percent">11.8%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 56%;"><span class="bar-percent">9.7%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    <strong>溫和穩定。</strong>兩群都比例高，是教會的脊椎。
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">ESFP｜現場感強</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 33%;"><span class="bar-percent">9.1%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 74%;"><span class="bar-percent">20.4%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    <strong>最大驚喜。</strong>牧者是信徒的 2.24 倍。牧職天然吸引現場型的人。
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">ENFJ｜謎團</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 70%;"><span class="bar-percent">9.0%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 7%;"><span class="bar-percent">0.91%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    <strong>最異常。</strong>為什麼最「像領袖」的類型，牧者中幾乎消失？
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">INFJ｜靈性深</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 62%;"><span class="bar-percent">8.6%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 20%;"><span class="bar-percent">2.79%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    靈性深度高的人，也在銳減。<strong>NFJ 合計：17.6% → 3.7%</strong>
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">ENFP｜樂觀</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 47%;"><span class="bar-percent">8.1%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 50%;"><span class="bar-percent">8.6%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    相對穩定。靈活樂觀型人在兩群平衡。
+                </div>
+            </div>
+
+            <div class="comparison-card">
+                <div class="comparison-type">INFP｜內向靈性</div>
+                <div class="comparison-bars">
+                    <div class="bar-item">
+                        <div class="bar" style="height: 40%;"><span class="bar-percent">6.8%</span></div>
+                        <div class="bar-label">信徒</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar pastor" style="height: 67%;"><span class="bar-percent">11.3%</span></div>
+                        <div class="bar-label">牧者</div>
+                    </div>
+                </div>
+                <div class="comparison-insight">
+                    <strong>內向卻信仰深。</strong>牧者中大幅上升 1.67 倍。安靜思考者適合牧職。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度分析 -->
+    <section class="analysis-section" id="dimensions">
+        <h2 class="section-title">四大向度</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">人格如何在牧職中被塑造。</p>
+
+        <div class="insight-box">
+            <div class="insight-title">E/I 向度：牧師也會社交焦慮</div>
+            <div class="insight-text">
+                信徒：47.6% 外向 | 52.4% 內向<br>
+                牧者：46.5% 外向 | 53.5% 內向<br><br>
+                只差 1%。<strong>你以為牧師的工作會讓人變外向，但事實不是。</strong>內向牧師通過技能訓練、帶領經驗、人脈累積，可以做得和外向牧師一樣好。他們只是回家後需要安靜充電。
+            </div>
+            <div class="insight-highlight">
+                💡 如果你是內向基督徒，不要以為自己「不適合事奉」。<strong>真正重要的是心志和成長，不是能量來源。</strong>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <div class="insight-title">S/N 向度：牧職把人變務實了</div>
+            <div class="insight-text">
+                信徒：55.2% 實感型 | 44.8% 直覺型<br>
+                牧者：60.4% 實感型 | 39.6% 直覺型<br><br>
+                差 5.2%。<strong>牧職工作充滿「真實發生的事」——會友失業、婚姻危機、聚會改變、人事衝突。</strong>這些具體、緊迫的問題，不斷訓練牧師的現實感。職業塑造人格。
+            </div>
+            <div class="insight-highlight">
+                💡 直覺型人進入牧職後，可能漸漸發展出實感特質。<strong>工作改變人。</strong>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <div class="insight-title">T/F 向度：感情型人的天堂</div>
+            <div class="insight-text">
+                信徒：26.9% 思考型 | 73.1% 感情型<br>
+                牧者：29.5% 思考型 | 70.5% 感情型<br><br>
+                <strong>這是最一致的地方。兩群都有七成是感情型。</strong>這不是巧合——感情型人在乎「人、關係、價值」，而教會的核心就是「關懷、陪伴、服事」。教會天然吸引感情型的人。
+            </div>
+            <div class="insight-highlight">
+                💡 教會需要溫暖，也需要理性。<strong>如果你是思考型，教會需要你帶來不同的聲音——邏輯、效率、批判性思考。</strong>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <div class="insight-title">J/P 向度：牧職改變了性格</div>
+            <div class="insight-text">
+                信徒：58.3% 判斷型（J）| 41.7% 感知型（P）<br>
+                牧者：40.9% 判斷型（J）| 59.1% 感知型（P）<br><br>
+                差 17-18%。整個翻轉了。<strong>會友期待「有計畫的牧師」，但牧師被工作訓練成「高手應變者」。每天都可能有意外。</strong>這是最值得思考的發現——牧職本身選擇或塑造了 P 型人。
+            </div>
+            <div class="insight-highlight">
+                💡 <strong>如果你的牧師「不夠有計畫」，別太快批評。那可能是牧職工作的代價。</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大氣質 -->
+    <section class="temperament-section" id="temperament">
+        <h2 class="section-title">四大氣質</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">教會的四種靈魂，各自扮演什麼角色。</p>
+        
+        <div class="temperament-grid">
+            <div class="temperament-card sj">
+                <div class="temperament-header">
+                    <div class="temperament-name">SJ</div>
+                    <div class="temperament-name-sub">守護者</div>
+                </div>
+                <div class="temperament-body">
+                    <div class="temperament-count">32.8%</div>
+                    <div class="temperament-types">ISTJ | ISFJ | ESTJ | ESFJ</div>
+                    <div class="temperament-story">
+                        教會的「脊椎骨」。建造組織、執行計畫、把事做好。聚會能準時開始，帳務精確記錄，都是他們功勞。容易過度承諾、累到極限，需要被感謝，也需要被允許說「不」。
+                    </div>
+                </div>
+            </div>
+
+            <div class="temperament-card sp">
+                <div class="temperament-header">
+                    <div class="temperament-name">SP</div>
+                    <div class="temperament-name-sub">自由者</div>
+                </div>
+                <div class="temperament-body">
+                    <div class="temperament-count">20.3%</div>
+                    <div class="temperament-types">ISTP | ISFP | ESTP | ESFP</div>
+                    <div class="temperament-story">
+                        聚會有他們很「HIGH」。現場感強、即時反應、靈敏度高。讓教會充滿生命力。靈性深度相對淺，幫他們找「信仰的刺激感」而不是只帶氣氛。
+                    </div>
+                </div>
+            </div>
+
+            <div class="temperament-card nf">
+                <div class="temperament-header">
+                    <div class="temperament-name">NF</div>
+                    <div class="temperament-name-sub">理想家</div>
+                </div>
+                <div class="temperament-body">
+                    <div class="temperament-count">32.5%</div>
+                    <div class="temperament-types">INFJ | INFP | ENFJ | ENFP</div>
+                    <div class="temperament-story">
+                        <strong>信仰最深（8.25/10）。</strong>尋求靈性深度、關心意義、為信念投入。教會靈性支柱。孤獨感最高，<strong>需要被「看見」而不是被「利用」。</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="temperament-card nt">
+                <div class="temperament-header">
+                    <div class="temperament-name">NT</div>
+                    <div class="temperament-name-sub">思想家</div>
+                </div>
+                <div class="temperament-body">
+                    <div class="temperament-count">15.1%</div>
+                    <div class="temperament-types">INTJ | INTP | ENTJ | ENTP</div>
+                    <div class="temperament-story">
+                        常被說「信心不足」，其實需要「更好的解釋」。<strong>給他們神學深度、邏輯論證、哲學思辨，信仰反而最堅實。</strong>被邊緣化，教會需要欣賞他們的批判性思考。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ENFJ謎團 -->
     <section id="mystery">
         <h2 class="section-title">ENFJ 謎團</h2>
@@ -29,3 +1263,26 @@
             <strong>這個謎團邀請我們重新思考「誰適合牧職」這個問題。</strong>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-title">教會人格圖鑑</p>
+        <p>30,445 位基督徒的真實故事</p>
+        <p>一次完整的教會人格普查</p>
+        <p style="margin-top: 30px; opacity: 0.6;">《教會小本bon》Podcast</p>
+        <p style="margin-top: 30px; opacity: 0.5; font-size: 0.85rem;">© 2024 教會人格圖鑑 | 用數據說故事</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
