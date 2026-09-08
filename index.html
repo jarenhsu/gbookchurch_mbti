@@ -478,6 +478,60 @@
             padding-top: 12px;
         }
 
+        .podcast-section {
+            background: linear-gradient(180deg, #fef9e7 0%, white 100%);
+        }
+
+        .podcast-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .podcast-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            height: 350px;
+        }
+
+        .podcast-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .podcast-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .podcast-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.3s;
+        }
+
+        .podcast-card:hover .podcast-overlay {
+            transform: translateY(0);
+        }
+
+        .podcast-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
         footer {
             background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
             color: white;
@@ -509,13 +563,8 @@
                 gap: 15px;
             }
 
-            .bar-percent {
-                font-size: 0.85rem;
-                top: -24px;
-            }
-
-            .temperament-card {
-                min-height: 320px;
+            .podcast-card {
+                height: 280px;
             }
         }
     </style>
@@ -865,6 +914,70 @@
                         <br><br>
                         <strong>挑戰：</strong>被邊緣化。教會需要學會欣賞他們的批判性思考。
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast 精華 -->
+    <section class="podcast-section" id="podcast">
+        <h2 class="section-title">🎙️ Podcast 精華集</h2>
+        <p class="section-subtitle">《教會小本bon》8集深度分析，用漫畫和故事說數據。</p>
+        
+        <div class="podcast-gallery">
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep01-1.png" alt="EP01">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP01 - 教會是F人的大本營</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep02-1.png" alt="EP02">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP02 - 牧者內心OS</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep3.png" alt="EP03">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP03 - 數據故事</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep04-1.png" alt="EP04">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP04 - 向度分析</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep05.png" alt="EP05">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP05 - 氣質探討</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep06-1.png" alt="EP06">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP06 - 牧者洞察</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep07.png" alt="EP07">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP07 - 信徒故事</div>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep08-1.png" alt="EP08">
+                <div class="podcast-overlay">
+                    <div class="podcast-title">EP08 - ENFJ謎團</div>
                 </div>
             </div>
         </div>
