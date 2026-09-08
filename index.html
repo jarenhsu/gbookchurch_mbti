@@ -249,64 +249,74 @@
             background: white;
         }
 
-        .mbti-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        .mbti-container {
             margin-top: 50px;
         }
 
-        .mbti-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            padding: 25px;
-            transition: all 0.3s ease;
-            text-align: center;
+        .mbti-column {
+            margin-bottom: 60px;
         }
 
-        .mbti-card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        .mbti-column-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f97316;
+        }
+
+        .mbti-rankings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .mbti-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px;
+            background: #fafafa;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .mbti-item:hover {
+            background: #f3f4f6;
             border-color: #f97316;
         }
 
-        .mbti-type {
-            font-size: 1.3rem;
+        .mbti-rank {
+            font-size: 1.8rem;
             font-weight: 900;
             color: #f97316;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .mbti-info {
+            flex: 1;
+        }
+
+        .mbti-type {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
         }
 
         .mbti-name {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #6b7280;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            margin-bottom: 6px;
         }
 
-        .mbti-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .mbti-stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background: #fafafa;
-            border-radius: 4px;
-            font-size: 0.85rem;
-        }
-
-        .mbti-stat-label {
-            color: #6b7280;
-            font-weight: 600;
-        }
-
-        .mbti-stat-value {
-            color: #1a1a1a;
+        .mbti-percent {
+            font-size: 0.9rem;
             font-weight: 700;
+            color: #f97316;
         }
 
         .story-section {
@@ -473,87 +483,89 @@
 
         .temperament-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 50px;
         }
 
         .temperament-card {
             position: relative;
-            padding: 40px;
-            color: white;
+            padding: 0;
             overflow: hidden;
-            transition: all 0.4s;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .temperament-card.sj {
-            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
-        }
-
-        .temperament-card.sp {
-            background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
-        }
-
-        .temperament-card.nf {
-            background: linear-gradient(135deg, #fcd34d 0%, #fde047 100%);
-        }
-
-        .temperament-card.nt {
-            background: linear-gradient(135deg, #bfdb38 0%, #d4fc79 100%);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
         }
 
         .temperament-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #f97316;
         }
 
-        .temperament-emoji {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+        .temperament-header {
+            padding: 30px;
+            color: white;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .temperament-card.sj .temperament-header {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+        }
+
+        .temperament-card.sp .temperament-header {
+            background: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
+        }
+
+        .temperament-card.nf .temperament-header {
+            background: linear-gradient(135deg, #fcd34d 0%, #fde047 100%);
+        }
+
+        .temperament-card.nt .temperament-header {
+            background: linear-gradient(135deg, #bfdb38 0%, #d4fc79 100%);
         }
 
         .temperament-name {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: -0.5px;
             color: #1a1a1a;
         }
 
         .temperament-name-sub {
-            font-size: 0.9rem;
-            color: #4b5563;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            color: #4b5563;
+        }
+
+        .temperament-body {
+            padding: 25px 30px;
         }
 
         .temperament-count {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+            color: #f97316;
+            margin-bottom: 12px;
         }
 
         .temperament-types {
             font-size: 0.75rem;
             color: #6b7280;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             line-height: 1.6;
             letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         .temperament-story {
             font-size: 0.85rem;
             color: #4b5563;
             line-height: 1.8;
-            border-top: 1px solid rgba(26, 26, 26, 0.1);
-            padding-top: 15px;
         }
 
         footer {
@@ -595,8 +607,12 @@
                 padding: 60px 20px;
             }
 
-            .mbti-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .mbti-rankings {
+                grid-template-columns: 1fr;
+            }
+
+            .temperament-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -685,247 +701,275 @@
 
     <!-- 16型統計 -->
     <section class="mbti-section" id="mbti">
-        <h2 class="section-title">16 型統計</h2>
+        <h2 class="section-title">16 型排行榜</h2>
         <div class="divider"></div>
-        <p class="section-subtitle">平信徒 vs 牧者的完整人格分布。</p>
+        <p class="section-subtitle">平信徒 vs 牧者的人格分布排名。</p>
         
-        <div class="mbti-grid">
-            <div class="mbti-card">
-                <div class="mbti-type">ESFJ</div>
-                <div class="mbti-name">馬大型｜外向感受感情判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">3,482（12.1%）</span>
+        <div class="mbti-container">
+            <div class="mbti-column">
+                <div class="mbti-column-title">📊 平信徒排行榜</div>
+                <div class="mbti-rankings">
+                    <div class="mbti-item">
+                        <div class="mbti-rank">1</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFJ｜馬大型</div>
+                            <div class="mbti-name">外向感受感情判斷</div>
+                            <div class="mbti-percent">3,482人 / 12.1%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">150（9.1%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">2</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFJ｜路得型</div>
+                            <div class="mbti-name">內向感受感情判斷</div>
+                            <div class="mbti-percent">3,408人 / 11.8%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ISFJ</div>
-                <div class="mbti-name">路得型｜內向感受感情判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">3,408（11.8%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">3</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFP｜撒馬利亞婦人</div>
+                            <div class="mbti-name">外向感受感情感知</div>
+                            <div class="mbti-percent">2,615人 / 9.1%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">160（9.7%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">4</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFJ｜亞伯拉罕</div>
+                            <div class="mbti-name">外向直覺感情判斷</div>
+                            <div class="mbti-percent">2,594人 / 9.0%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ESFP</div>
-                <div class="mbti-name">撒馬利亞婦人｜外向感受感情感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">2,615（9.1%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">5</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFJ｜但以理型</div>
+                            <div class="mbti-name">內向直覺感情判斷</div>
+                            <div class="mbti-percent">2,486人 / 8.6%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">336（20.4%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">6</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFP｜巴拿巴型</div>
+                            <div class="mbti-name">外向直覺感情感知</div>
+                            <div class="mbti-percent">2,323人 / 8.1%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ENFJ</div>
-                <div class="mbti-name">亞伯拉罕｜外向直覺感情判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">2,594（9.0%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">7</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFP｜大衛型</div>
+                            <div class="mbti-name">內向感受感情感知</div>
+                            <div class="mbti-percent">2,182人 / 7.6%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">15（0.91%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">8</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFP｜約翰型</div>
+                            <div class="mbti-name">內向直覺感情感知</div>
+                            <div class="mbti-percent">1,959人 / 6.8%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">INFJ</div>
-                <div class="mbti-name">但以理型｜內向直覺感情判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">2,486（8.63%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">9</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTJ｜尼希米型</div>
+                            <div class="mbti-name">內向感受思考判斷</div>
+                            <div class="mbti-percent">1,899人 / 6.0%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">46（2.79%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">10</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTJ｜保羅型</div>
+                            <div class="mbti-name">內向直覺思考判斷</div>
+                            <div class="mbti-percent">1,312人 / 4.6%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ENFP</div>
-                <div class="mbti-name">巴拿巴型｜外向直覺感情感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">2,323（8.1%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">11</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTJ｜摩西型</div>
+                            <div class="mbti-name">外向感受思考判斷</div>
+                            <div class="mbti-percent">970人 / 3.4%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">142（8.6%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">12</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTP｜多馬型</div>
+                            <div class="mbti-name">內向直覺思考感知</div>
+                            <div class="mbti-percent">964人 / 3.4%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ISFP</div>
-                <div class="mbti-name">大衛型｜內向感受感情感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">2,182（7.6%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTP｜參孫型</div>
+                            <div class="mbti-name">內向感受思考感知</div>
+                            <div class="mbti-percent">890人 / 3.1%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">126（7.6%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">14</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTJ｜底波拉型</div>
+                            <div class="mbti-name">外向直覺思考判斷</div>
+                            <div class="mbti-percent">635人 / 2.2%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">INFP</div>
-                <div class="mbti-name">約翰型｜內向直覺感情感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">1,959（6.8%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">15</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTP｜雅各型</div>
+                            <div class="mbti-name">外向直覺思考感知</div>
+                            <div class="mbti-percent">618人 / 2.2%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">187（11.3%）</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ISTJ</div>
-                <div class="mbti-name">尼希米型｜內向感受思考判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">1,899（6.0%）</span>
-                    </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">130（7.9%）</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">INTJ</div>
-                <div class="mbti-name">保羅型｜內向直覺思考判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">1,312（4.56%）</span>
-                    </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">111（6.73%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">16</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTP｜彼得型</div>
+                            <div class="mbti-name">外向感受思考感知</div>
+                            <div class="mbti-percent">459人 / 1.6%</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mbti-card">
-                <div class="mbti-type">ESTJ</div>
-                <div class="mbti-name">摩西型｜外向感受思考判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">970（3.37%）</span>
+            <div class="mbti-column">
+                <div class="mbti-column-title">👨牧 牧者排行榜</div>
+                <div class="mbti-rankings">
+                    <div class="mbti-item">
+                        <div class="mbti-rank">1</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFP｜撒馬利亞婦人</div>
+                            <div class="mbti-name">外向感受感情感知</div>
+                            <div class="mbti-percent">336人 / 20.4%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">50（3.03%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">2</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFP｜約翰型</div>
+                            <div class="mbti-name">內向直覺感情感知</div>
+                            <div class="mbti-percent">187人 / 11.3%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">INTP</div>
-                <div class="mbti-name">多馬型｜內向直覺思考感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">964（3.35%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">3</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFJ｜路得型</div>
+                            <div class="mbti-name">內向感受感情判斷</div>
+                            <div class="mbti-percent">160人 / 9.7%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">100（6.06%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">4</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESFJ｜馬大型</div>
+                            <div class="mbti-name">外向感受感情判斷</div>
+                            <div class="mbti-percent">150人 / 9.1%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ISTP</div>
-                <div class="mbti-name">參孫型｜內向感受思考感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">890（3.09%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">5</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFP｜巴拿巴型</div>
+                            <div class="mbti-name">外向直覺感情感知</div>
+                            <div class="mbti-percent">142人 / 8.6%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">22（1.33%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">6</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTJ｜尼希米型</div>
+                            <div class="mbti-name">內向感受思考判斷</div>
+                            <div class="mbti-percent">130人 / 7.9%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ENTJ</div>
-                <div class="mbti-name">底波拉型｜外向直覺思考判斷</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">635（2.21%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">7</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISFP｜大衛型</div>
+                            <div class="mbti-name">內向感受感情感知</div>
+                            <div class="mbti-percent">126人 / 7.6%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">13（0.79%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">8</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTJ｜保羅型</div>
+                            <div class="mbti-name">內向直覺思考判斷</div>
+                            <div class="mbti-percent">111人 / 6.7%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ENTP</div>
-                <div class="mbti-name">雅各型｜外向直覺思考感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">618（2.15%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">9</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INTP｜多馬型</div>
+                            <div class="mbti-name">內向直覺思考感知</div>
+                            <div class="mbti-percent">100人 / 6.1%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">39（2.37%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">10</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTJ｜摩西型</div>
+                            <div class="mbti-name">外向感受思考判斷</div>
+                            <div class="mbti-percent">50人 / 3.0%</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mbti-card">
-                <div class="mbti-type">ESTP</div>
-                <div class="mbti-name">彼得型｜外向感受思考感知</div>
-                <div class="mbti-stats">
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">平信徒</span>
-                        <span class="mbti-stat-value">459（1.59%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">11</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">INFJ｜但以理型</div>
+                            <div class="mbti-name">內向直覺感情判斷</div>
+                            <div class="mbti-percent">46人 / 2.8%</div>
+                        </div>
                     </div>
-                    <div class="mbti-stat-row">
-                        <span class="mbti-stat-label">牧者</span>
-                        <span class="mbti-stat-value">22（1.33%）</span>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">12</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTP｜雅各型</div>
+                            <div class="mbti-name">外向直覺思考感知</div>
+                            <div class="mbti-percent">39人 / 2.4%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ESTP｜彼得型</div>
+                            <div class="mbti-name">外向感受思考感知</div>
+                            <div class="mbti-percent">22人 / 1.3%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">13</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ISTP｜參孫型</div>
+                            <div class="mbti-name">內向感受思考感知</div>
+                            <div class="mbti-percent">22人 / 1.3%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">15</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENFJ｜亞伯拉罕</div>
+                            <div class="mbti-name">外向直覺感情判斷</div>
+                            <div class="mbti-percent">15人 / 0.9%</div>
+                        </div>
+                    </div>
+                    <div class="mbti-item">
+                        <div class="mbti-rank">16</div>
+                        <div class="mbti-info">
+                            <div class="mbti-type">ENTJ｜底波拉型</div>
+                            <div class="mbti-name">外向直覺思考判斷</div>
+                            <div class="mbti-percent">13人 / 0.8%</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1130,12 +1174,11 @@
         
         <div class="temperament-grid">
             <div class="temperament-card sj">
-                <div>
-                    <div class="temperament-emoji">🔵</div>
+                <div class="temperament-header">
                     <div class="temperament-name">SJ</div>
                     <div class="temperament-name-sub">守護者</div>
                 </div>
-                <div>
+                <div class="temperament-body">
                     <div class="temperament-count">32.8%</div>
                     <div class="temperament-types">ISTJ | ISFJ | ESTJ | ESFJ</div>
                     <div class="temperament-story">
@@ -1145,12 +1188,11 @@
             </div>
 
             <div class="temperament-card sp">
-                <div>
-                    <div class="temperament-emoji">🔴</div>
+                <div class="temperament-header">
                     <div class="temperament-name">SP</div>
                     <div class="temperament-name-sub">自由者</div>
                 </div>
-                <div>
+                <div class="temperament-body">
                     <div class="temperament-count">20.3%</div>
                     <div class="temperament-types">ISTP | ISFP | ESTP | ESFP</div>
                     <div class="temperament-story">
@@ -1160,12 +1202,11 @@
             </div>
 
             <div class="temperament-card nf">
-                <div>
-                    <div class="temperament-emoji">🟣</div>
+                <div class="temperament-header">
                     <div class="temperament-name">NF</div>
                     <div class="temperament-name-sub">理想家</div>
                 </div>
-                <div>
+                <div class="temperament-body">
                     <div class="temperament-count">32.5%</div>
                     <div class="temperament-types">INFJ | INFP | ENFJ | ENFP</div>
                     <div class="temperament-story">
@@ -1175,12 +1216,11 @@
             </div>
 
             <div class="temperament-card nt">
-                <div>
-                    <div class="temperament-emoji">🟢</div>
+                <div class="temperament-header">
                     <div class="temperament-name">NT</div>
                     <div class="temperament-name-sub">思想家</div>
                 </div>
-                <div>
+                <div class="temperament-body">
                     <div class="temperament-count">15.1%</div>
                     <div class="temperament-types">INTJ | INTP | ENTJ | ENTP</div>
                     <div class="temperament-story">
