@@ -178,6 +178,14 @@
             border-radius: 2px;
         }
 
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
         .discoveries {
             background: white;
         }
@@ -186,6 +194,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            margin-top: 40px;
         }
 
         .discovery-card {
@@ -408,6 +417,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
+            margin-top: 40px;
         }
 
         .temperament-card {
@@ -478,60 +488,6 @@
             padding-top: 12px;
         }
 
-        .podcast-section {
-            background: linear-gradient(180deg, #fef9e7 0%, white 100%);
-        }
-
-        .podcast-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .podcast-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-            height: 350px;
-        }
-
-        .podcast-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .podcast-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .podcast-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-            padding: 20px;
-            color: white;
-            transform: translateY(100%);
-            transition: all 0.3s;
-        }
-
-        .podcast-card:hover .podcast-overlay {
-            transform: translateY(0);
-        }
-
-        .podcast-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
         footer {
             background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
             color: white;
@@ -561,10 +517,6 @@
             .comparison-bars {
                 height: 90px;
                 gap: 15px;
-            }
-
-            .podcast-card {
-                height: 280px;
             }
         }
     </style>
@@ -598,6 +550,8 @@
     <section class="discoveries" id="discoveries">
         <h2 class="section-title">🔥 不能不知道的8個真相</h2>
         <p class="section-subtitle">你對教會、牧師、和自己的認知，可能都需要更新。</p>
+
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep07.png" alt="信徒故事" class="section-image">
         
         <div class="discovery-grid">
             <div class="discovery-card">
@@ -654,6 +608,8 @@
     <section class="story-section" id="comparison">
         <h2 class="section-title">⚖️ 信徒 vs 牧者：一個有趣的對比故事</h2>
         <p class="section-subtitle">同樣是教會人，為什麼人格分布這麼不一樣？</p>
+
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep03.png" alt="數據故事" class="section-image">
         
         <div class="story-intro">
             <div class="story-intro-title">📊 關鍵發現</div>
@@ -789,6 +745,8 @@
         <h2 class="section-title">🔍 向度故事：人格如何在牧職中改變</h2>
         <p class="section-subtitle">四個向度的對話，揭開教會人格的祕密。</p>
 
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep02-1.png" alt="牧者內心OS" class="section-image">
+
         <div class="insight-box">
             <div class="insight-title">💬 E/I 向度：「牧師也會社交焦慮」</div>
             <div class="insight-text">
@@ -828,6 +786,8 @@
             </div>
         </div>
 
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep01-1.png" alt="教會是F人的大本營" class="section-image">
+
         <div class="insight-box">
             <div class="insight-title">🚨 J/P 向度：「牧職如何改變了人的性格」</div>
             <div class="insight-text">
@@ -847,6 +807,8 @@
     <section class="temperament-section" id="temperament">
         <h2 class="section-title">🎨 四大氣質：教會的四種靈魂</h2>
         <p class="section-subtitle">他們各自扮演什麼角色？又面臨什麼挑戰？</p>
+
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep05.png" alt="氣質探討" class="section-image">
         
         <div class="temperament-grid">
             <div class="temperament-card sj">
@@ -919,66 +881,18 @@
         </div>
     </section>
 
-    <!-- Podcast 精華 -->
-    <section class="podcast-section" id="podcast">
-        <h2 class="section-title">🎙️ Podcast 精華集</h2>
-        <p class="section-subtitle">《教會小本bon》8集深度分析，用漫畫和故事說數據。</p>
-        
-        <div class="podcast-gallery">
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep01-1.png" alt="EP01">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP01 - 教會是F人的大本營</div>
-                </div>
-            </div>
+    <!-- 牧者洞察 -->
+    <section id="pastor-insights">
+        <h2 class="section-title">👨牧 牧者深度洞察</h2>
+        <p class="section-subtitle">誰說牧者一定要有某種人格？</p>
 
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep02-1.png" alt="EP02">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP02 - 牧者內心OS</div>
-                </div>
-            </div>
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep06-1.png" alt="牧者洞察" class="section-image">
 
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep3.png" alt="EP03">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP03 - 數據故事</div>
-                </div>
-            </div>
-
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep04-1.png" alt="EP04">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP04 - 向度分析</div>
-                </div>
-            </div>
-
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep05.png" alt="EP05">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP05 - 氣質探討</div>
-                </div>
-            </div>
-
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep06-1.png" alt="EP06">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP06 - 牧者洞察</div>
-                </div>
-            </div>
-
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep07.png" alt="EP07">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP07 - 信徒故事</div>
-                </div>
-            </div>
-
-            <div class="podcast-card">
-                <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep08-1.png" alt="EP08">
-                <div class="podcast-overlay">
-                    <div class="podcast-title">EP08 - ENFJ謎團</div>
-                </div>
+        <div class="insight-box">
+            <div class="insight-title">📊 牧者人格全景</div>
+            <div class="insight-text">
+                牧者和平信徒的人格分布其實沒有想像中那麼不同。真正的差異來自於工作對人格的塑造，而不是職業挑選了某種特定的人格。<br><br>
+                最驚人的是 J/P 向度的反轉——牧職工作把計畫型的人改變成了應變型，這是職業的力量。
             </div>
         </div>
     </section>
@@ -987,6 +901,8 @@
     <section id="mystery">
         <h2 class="section-title">❓ ENFJ 消失謎團：柯南破案時間</h2>
         <p class="section-subtitle">為什麼平信徒最多的類型，在牧者中幾乎看不到？</p>
+
+        <img src="https://raw.githubusercontent.com/jarenhsu/gbookchurch_mbti/main/images/ep08-1.png" alt="ENFJ謎團" class="section-image">
 
         <div class="insight-box">
             <div class="insight-title">📊 謎團的證據</div>
@@ -1037,8 +953,8 @@
     <!-- Footer -->
     <footer>
         <p>📊 30,445 位基督徒的真實故事 | 一次完整的教會人格普查</p>
-        <p>🎙️ 《教會小本bon》Podcast | 更多深度分析等著你</p>
-        <p>💭 你的故事是什麼？歡迎在評論區分享你的人格類型和教會經歷</p>
+        <p>🎙️ 《教會小本bon》Podcast | 用漫畫和故事說數據</p>
+        <p>💭 你的故事是什麼？歡迎分享你的人格類型和教會經歷</p>
         <p style="margin-top: 25px; opacity: 0.7;">© 2024 教會人格圖鑑 | 用數據說故事</p>
     </footer>
 
